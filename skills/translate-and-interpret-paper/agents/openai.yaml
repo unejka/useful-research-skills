@@ -1,0 +1,4 @@
+interface:
+  display_name: "翻译并解读"
+  short_description: "Translate arXiv papers and explain methods in Chinese"
+  default_prompt: "Use $translate-and-interpret-paper to translate and interpret https://arxiv.org/abs/2503.09516."

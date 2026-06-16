@@ -2,10 +2,11 @@
 
 Reusable Codex skills for research paper workflows.
 
-This repository currently contains two local skills:
+This repository currently contains three local skills:
 
 - `arxiv-paper-reader`: fetches and analyzes AI/ML arXiv papers, then produces a rigorous Chinese Markdown reading report focused on methodology.
 - `arxiv-paper-translator`: translates arXiv papers into Chinese while preserving LaTeX structure and compiling a layout-checked Chinese PDF.
+- `translate-and-interpret-paper`: combines the translator and reader workflows to produce both a Chinese paper translation and a Chinese methodology interpretation report.
 
 ## Repository Layout
 
@@ -21,6 +22,9 @@ skills/
     assets/
     references/
     scripts/
+  translate-and-interpret-paper/
+    SKILL.md
+    agents/
 ```
 
 ## Install
@@ -32,20 +36,18 @@ git clone https://github.com/unejka/useful-research-skills.git
 cd useful-research-skills
 ```
 
-Install both skills into Codex on Windows:
+Install all skills into Codex on Windows:
 
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
-Copy-Item -Recurse -Force ".\skills\arxiv-paper-reader" "$env:USERPROFILE\.codex\skills\"
-Copy-Item -Recurse -Force ".\skills\arxiv-paper-translator" "$env:USERPROFILE\.codex\skills\"
+Copy-Item -Recurse -Force ".\skills\*" "$env:USERPROFILE\.codex\skills\"
 ```
 
-Install both skills on macOS or Linux:
+Install all skills on macOS or Linux:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R skills/arxiv-paper-reader ~/.codex/skills/
-cp -R skills/arxiv-paper-translator ~/.codex/skills/
+cp -R skills/* ~/.codex/skills/
 ```
 
 Restart Codex after installing so the new skills are loaded.
@@ -62,6 +64,12 @@ Translate an arXiv paper into Chinese LaTeX and compile a verified PDF:
 
 ```text
 Use $arxiv-paper-translator to translate https://arxiv.org/abs/2605.05185v1
+```
+
+Translate and interpret a paper in one workflow:
+
+```text
+Use $translate-and-interpret-paper to 翻译并解读 https://arxiv.org/abs/2503.09516
 ```
 
 ## Requirements
@@ -82,6 +90,8 @@ Common requirements:
 - TeX Live or another LaTeX distribution with `xelatex` and `latexmk`.
 - Poppler tools such as `pdftotext`, `pdftoppm`, and `pdffonts` for PDF verification.
 - Windows PowerShell for the included `compile_ps1.ps1` helper.
+
+`translate-and-interpret-paper` expects the two component skills to be installed alongside it because it reuses their workflows and resources.
 
 ## Notes
 
