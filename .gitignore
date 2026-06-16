@@ -1,0 +1,35 @@
+# Local runtime state
+.omx/
+work/
+outputs/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# arXiv and paper outputs
+/arXiv_*/
+/arxiv-*/
+/paper_cn/
+/paper_source/
+*.pdf
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

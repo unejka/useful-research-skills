@@ -1,0 +1,4 @@
+interface:
+  display_name: "ArXiv Paper Reader"
+  short_description: "Analyze arXiv paper methods into Chinese Markdown"
+  default_prompt: "Use $arxiv-paper-reader to analyze an arXiv paper method section and produce a Chinese Markdown report."
